@@ -1,0 +1,131 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>장고프로젝트!</title>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'homepage/css/styles.css' %}" rel="stylesheet" />
+    </head>
+
+    <body >
+        
+        <!-- Navigation-->
+        <input type="hidden" id="job_skill_class" value="<%=JSON.stringify(job_skill_class)%>" />
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{% url 'index'%}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'check'%}">데이터 확인</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'theory'%}">가설 설정</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'verification'%}">시각화</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'result'%}">결론</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#!">About</a></li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">데브코스 [3기-B6] 박정희 Monthly Project</h1>
+                </div>
+            </div>
+        </header>
+        <section class="py-5">
+            <div class="container">
+                <h1 class="display-4 fw-bolder">시각화</h1>
+                <br><br>
+
+                <h2>1.성별 간 점수그래프</h2>
+                <div id="carouselExampleControls0" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div id="img0" class="carousel-item active"><img id="prev_img0" class="d-block w-75 margin_auto" src="{% static 'homepage/image/gender_math score.png' %}"></div>
+                        <div id="img1" class="carousel-item"><img id="prev_img1" class="d-block w-75 margin_auto" src="{% static 'homepage/image/gender_reading score.png' %}"></div>
+                        <div id="img2" class="carousel-item"><img id="prev_img2" class="d-block w-75 margin_auto" src="{% static 'homepage/image/gender_writing score.png' %}"></div>
+                    </div>
+                    <button_switch><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls0" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls0" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button></button_switch>
+                </div>
+                <br>
+                ->가설대로 수학점수는 남자가 상대적으로 잘하는 것을 볼 수 있다. 읽기, 쓰기 점수는 여자가 상대적으로 잘하며 수학점수 차이보다 더 큰 차이로 앞선다.
+                <br><br><br>
+                <h2>2.점심식사차이 그래프</h2>
+                <div id="carouselExampleControls1" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div id="img3" class="carousel-item active"><img id="prev_img3" class="d-block w-75 margin_auto" src="{% static 'homepage/image/lunch_math score.png' %}"></div>
+                        <div id="img4" class="carousel-item"><img id="prev_img4" class="d-block w-75 margin_auto" src="{% static 'homepage/image/lunch_reading score.png' %}"></div>
+                        <div id="img5" class="carousel-item"><img id="prev_img5" class="d-block w-75 margin_auto" src="{% static 'homepage/image/lunch_writing score.png' %}"></div>
+                    </div>
+                    <button_switch><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button></button_switch>
+                </div>
+                <br>
+                ->가설대로 점심식사를 챙겨먹는 학생들이 챙겨먹지 않는 학생들보다 높은성적을 가지는 것을 볼 수 있다. 
+                <br><br><br>
+                <h2>3.부모학력차이 그래프</h2>
+                <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div id="img6" class="carousel-item active"><img id="prev_img6" class="d-block w-75 margin_auto" src="{% static 'homepage/image/parental level of education_math score.png' %}"></div>
+                        <div id="img7" class="carousel-item"><img id="prev_img7" class="d-block w-75 margin_auto" src="{% static 'homepage/image/parental level of education_reading score.png' %}"></div>
+                        <div id="img8" class="carousel-item"><img id="prev_img8" class="d-block w-75 margin_auto" src="{% static 'homepage/image/parental level of education_writing score.png' %}"></div>
+                    </div>
+                    <button_switch><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button></button_switch>
+                </div>
+                <br>
+                ->학력에 의한 차이가 확실하다고 말하기 어렵다. <br>
+                전체적으로 비슷한 그림을 그리나 수학에서 석사학위의 부모를 가진 자식들이 높은 점수쪽으로 몰린 그래프를 그린다.
+                <br><br><br>
+                <h2>4.인종/민족차이 그래프</h2>
+                <div id="carouselExampleControls3" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div id="img9" class="carousel-item active"><img id="prev_img9" class="d-block w-75 margin_auto" src="{% static 'homepage/image/race_ethnicity_math score.png' %}"></div>
+                        <div id="img10" class="carousel-item"><img id="prev_img10" class="d-block w-75 margin_auto" src="{% static 'homepage/image/race_ethnicity_reading score.png' %}"></div>
+                        <div id="img11" class="carousel-item"><img id="prev_img11" class="d-block w-75 margin_auto" src="{% static 'homepage/image/race_ethnicity_writing score.png' %}"></div>
+                    </div>
+                    <button_switch><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button></button_switch>
+                </div>
+                <br>
+                ->그룹간 분포차이가 보인다. group A는 전체적으로 점수가 낮으며 group E는 수학성적이 높다.
+                group A를 제외하고 언어 점수들에서 나머지 그룹들은 비슷한 분포를 가진다.
+                <br><br><br>
+
+                <h2>5.시험준비차이 그래프</h2>
+                <div id="carouselExampleControls4" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div id="img12" class="carousel-item active"><img id="prev_img12" class="d-block w-75 margin_auto" src="{% static 'homepage/image/test preparation course_math score.png' %}"></div>
+                        <div id="img13" class="carousel-item"><img id="prev_img13" class="d-block w-75 margin_auto" src="{% static 'homepage/image/test preparation course_reading score.png' %}"></div>
+                        <div id="img14" class="carousel-item"><img id="prev_img14" class="d-block w-75 margin_auto" src="{% static 'homepage/image/test preparation course_writing score.png' %}"></div>
+                    </div>
+                    <button_switch><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button></button_switch>
+                </div>
+                <br>
+                ->읽기, 쓰기점수는 확연이 차이나는 분포를 가지지만 수학점수는 나머지 두 점수들과 달리 큰 차이를 가지지 않았다.
+                <br><br><br>
+
+
+
+            </div>
+                
+        </section>
+         
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">lyeong-gwa django week5 Monthly Project</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+    </body>
+    
+</html>
+
+

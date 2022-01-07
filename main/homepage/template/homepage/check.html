@@ -1,0 +1,116 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>장고프로젝트!</title>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'homepage/css/styles.css' %}" rel="stylesheet" />
+    </head>
+
+    <body >
+        
+        <!-- Navigation-->
+        <input type="hidden" id="job_skill_class" value="<%=JSON.stringify(job_skill_class)%>" />
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{% url 'index'%}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'check'%}">데이터 확인</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'theory'%}">가설 설정</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'verification'%}">시각화</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'result'%}">결론</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#!">About</a></li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">데브코스 [3기-B6] 박정희 Monthly Project</h1>
+                </div>
+            </div>
+        </header>
+        <section class="py-5">
+            <div class="container">
+                <h1> 데이터표 (10개의 데이터만 표시합니다.)</h1>
+                {{data_table|safe}}
+                <p>{{row}} rows * {{col}} columns</p><br>
+                <h1> columns설명</h1><br>
+                <ul>
+                    <li><pre>gemder: 성별(남/여)</pre></li>
+                    <li><pre>race/ethnicity: 인종/민족</pre></li>
+                    <li><pre>parental level of education: 부모 학력 수준</pre></li>
+                    <li><pre>lunch: 점심식사 여부</pre></li>
+                    <li><pre>test preparation course:   시험 준비 여부</pre></li>
+                    <li><pre>math score: 수학점수</pre></li>
+                    <li><pre>reading score: 읽기점수</pre></li>
+                    <li><pre>writing score: 쓰기점수</pre></li>
+                </ul>
+                <br>
+                <h1>결측치 확인</h1>
+                <table border="1" class="table table-striped" style=" width:400px">
+                    <thead class="thead-dark" style="background-color: black;">
+                        <tr style="text-align: left; color: white">
+                            <th>column</th>
+                            <th>null_count</th>
+                        </tr>
+                    <tbody>
+                        {% for key,value in null_check.items%}
+                            <tr>
+                                <td>{{key}}</td>
+                                <td>{{value}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <ul>
+                    <li>결측치는 존재하지 않는다.</li>
+                </ul>
+                <br>
+                <h1>상관관계 분석</h1>
+                {{data_corr|safe}}
+                <ul>
+                    <li>수치데이터가 아니기에 점수들만 나온다.</li>
+                    <li>언어와 관련된 읽기, 쓰기점수는 상관성이 높다.</li>
+                </ul>
+                <br>
+                <h1>수치데이터 분석</h1>
+                {{describe_1|safe}}
+
+                <br>
+                <h1>범주데이터 분석</h1>
+                {{describe_2|safe}}
+                <ul>
+                    <li>unique열은 범주의 종류를 나타낸다.</li>
+                    <li>top은 특정 열에서 가장 많은 수를 가진 값을 나타낸다.</li>
+                    <li>freq는 가장 많은 수를 가진 범주의 갯수를 의미한다.</li>
+                </ul>
+
+            </div>
+                
+        </section>
+         
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">lyeong-gwa django week5 Monthly Project</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+    </body>
+    
+</html>
+
+

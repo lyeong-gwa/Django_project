@@ -1,0 +1,69 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>장고프로젝트!</title>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'homepage/css/styles.css' %}" rel="stylesheet" />
+    </head>
+
+    <body >
+        
+        <!-- Navigation-->
+        <input type="hidden" id="job_skill_class" value="<%=JSON.stringify(job_skill_class)%>" />
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{% url 'index'%}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'check'%}">데이터 확인</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'theory'%}">가설 설정</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'verification'%}">시각화</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'result'%}">결론</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#!">About</a></li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">데브코스 [3기-B6] 박정희 Monthly Project</h1>
+                </div>
+            </div>
+        </header>
+        <section class="py-5">
+            <div class="container">
+                <h1 class="display-4 fw-bolder">결론</h1><br>
+                <ol>
+                    <li>남자는 수학성적이 좋고 여자는 읽기,쓰기 점수가 높을 것이다. => 참</li>
+                    <li>부모 학력 수준이 높으면 자식 성적도 좋을 것이다. => 수학점수 부분에서 어느정도 차이가 보인다.</li>
+                    <li>점심식사를 챙겨먹는 학생은 성적이 좋을 것이다. => 참</li>
+                    <li>시험 준비를 한 학생은 성적이 좋을 것이다. => 읽기, 쓰기점수는 큰차이, 수학점수에서 조금 차이가 있으나 참</li>
+                </ol>
+            </div>
+                
+        </section>
+         
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">lyeong-gwa django week5 Monthly Project</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+    </body>
+    
+</html>
+
+

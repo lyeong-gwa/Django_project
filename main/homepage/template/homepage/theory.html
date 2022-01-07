@@ -1,0 +1,107 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>장고프로젝트!</title>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'homepage/css/styles.css' %}" rel="stylesheet" />
+    </head>
+
+    <body >
+        
+        <!-- Navigation-->
+        <input type="hidden" id="job_skill_class" value="<%=JSON.stringify(job_skill_class)%>" />
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{% url 'index'%}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'check'%}">데이터 확인</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'theory'%}">가설 설정</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'verification'%}">시각화</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'result'%}">결론</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#!">About</a></li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">데브코스 [3기-B6] 박정희 Monthly Project</h1>
+                </div>
+            </div>
+        </header>
+        <section class="py-5">
+            <div class="container">
+                <h1 class="display-4 fw-bolder">가설: column별로 점수와의 관계를 생각해보기</h1><br>
+                <ol>
+                    <h2><li>gender(성별)</li></h2>
+                        <ul>
+                            참고자료: <a href="https://blog.naver.com/santa_croce/220445505524" target="_blank">성별 공부차이 분석블로그</a><br>
+                            위 블로그를 참고했을 때 전체적으로 여자가 남자보다 공부를 잘할 것으로 추측할 수 있으나 수학은 남자가 잘할 것이라 예상한다.
+                        </ul>
+
+                    <br><br><br><br>
+                    <h2><li>race/ethnicity(인종/민족)</li></h2>
+                        <ul>
+                            어느 인종/민족이 우월하다고 생각하지 않는다. 다만 과거부터 학습하는데 유리한 조건/환경이였던 그룹이 성적이 좋을 것이라 생각한다.<br>
+                            다만 race/ethnicity열에 그룹정보를 group A,B,C 식으로 제공하기 때문에 판단할 수 없다.
+                        </ul>
+                    <br><br><br><br>
+                    <h2><li>parental level of education(부모 학력 수준)</li></h2>
+                        <ul>
+                            유전적인 요소와 가정환경을 생각해 보았을 때 부모 학력 수준이 높다면 자녀 성적도 높을 것이라 생각한다.<br>
+                        </ul>
+
+                    <br><br><br><br>
+                    <h2><li>lunch(점심식사 여부)</li></h2>
+                        <ul>
+                            "아침밥 먹으면 학업에 도움이 된다." 라는 말은 들어보았지만 점심식사까지는 잘 모르겠다.<br>
+                            규칙적인 식사를 하면 건강을 챙기는데 도움이 될 것이라 생각하고 에너지 보충이 될 것이라 생각하여 성적에 긍정적 영향을 줄 것이라 생각한다.
+                        </ul>
+
+                    <br><br><br><br>
+                    <h2><li>test preparation course(시험 준비 여부)</li></h2>
+                        <ul>
+                            시험준비를 하면 당연히 좋은 성적을 받을 것이라 생각한다.
+                        </ul>
+                    <br><br><br><br>
+                </ol>
+                <h2>정리</h2>
+                <ol>
+                    <li>남자는 수학성적이 좋고 여자는 읽기,쓰기 점수가 높을 것이다.</li>
+                    <li>부모 학력 수준이 높으면 자식 성적도 좋을 것이다.</li>
+                    <li>점심식사를 챙겨먹는 학생은 성적이 좋을 것이다.</li>
+                    <li>시험 준비를 한 학생은 성적이 좋을 것이다.</li>
+                </ol>
+
+
+
+
+            </div>
+                
+        </section>
+         
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">lyeong-gwa django week5 Monthly Project</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+    </body>
+    
+</html>
+
+
